@@ -10,12 +10,12 @@ model = pickle.load(open('model.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
 # Your existing FastAPI app initialization
 app = FastAPI()
-handler = Mangum(app)
+
 # New CORS setup
 origins = [
     "http://localhost:3000",  # React app's address
     "http://192.168.54.227:3000",
-    "http://diabetis.s3-website-us-east-1.amazonaws.com"  # If you're accessing it from another device in your network
+    "http://diabetes-appnai.s3-website-us-east-1.amazonaws.com"  # If you're accessing it from another device in your network
 ]
 
 app.add_middleware(
@@ -55,6 +55,10 @@ async def predict_diabetes(input_data: PredictionInput):
 
     return {"prediction": prediction}
 
+
+
+
+handler = Mangum(app)
 # if __name__ == "__main__":
 #     uvicorn.run(app, host="127.0.0.1", port=8000)
 
