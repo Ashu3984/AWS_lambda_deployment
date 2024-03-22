@@ -21,7 +21,7 @@ jobs:
           REPOSITORY: test2
           IMAGE_TAG: ${{ github.sha }}
         run: |
-            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./docker
+            docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG ./Docker
             docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
             aws lambda update-function-code \
               --function-name Diabetes \
