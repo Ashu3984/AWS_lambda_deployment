@@ -5,7 +5,7 @@ import pickle
 import numpy as np
 import uvicorn
 from mangum import Mangum
-
+ 
 model = pickle.load(open('model.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
 # Your existing FastAPI app initialization
